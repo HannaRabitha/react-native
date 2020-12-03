@@ -1,49 +1,74 @@
-import React, { Component } from 'react'
-import { Image, ScrollView, StyleSheet, Text, TextInput, View, } from 'react-native'
+import React from 'react'
+import { StyleSheet, Text, View, Image, Button, Alert, ScrollView } from 'react-native'
 
-const App = () => { //Fungsional Component
+const App = () => {
   return (
     <ScrollView>
-      <MyName></MyName>
-      <YourName> </YourName>     
+      <Items/>
+      <Items/>
+      <Items/>
     </ScrollView>
   )
 }
 
-const MyName = () => { //Fungsional Component
-  const name='Hanna Rabitha';
-
+const Items = () => {
   return (
-    <View style={{
-      marginBottom:50,
-      backgroundColor:'black'
-    }}>
-    <Text style={{
-      fontSize:30,
-      color:'white'}
-      }>Hello, my name is {name} </Text>
-    <Image source={{uri:'http://placeimg.com/200/200/tech'}}
-    style={{width:200, height:200}}></Image>
-    </View>
-  );
-}
+    <View style={styles.square
+    //   {
+    //   backgroundColor: '#E6E6E6',
+    //   width: 227,
+    //   height:269,
+    //   marginTop: 48,
+    //   alignSelf: 'center',
+    //   padding:12,
+    //   borderRadius: 10
+    // }
+    }>
 
-
-class YourName extends Component { //Class Component
-  render() {
-    return (
-      <View>
+      <Image source={{uri:'http://placeimg.com/200/100/tech'}}
+      style={{width:200, height:100}}>
+      </Image>
+      <Text style={styles.productName
+      //   {
+      //   fontWeight:'bold',
+      //   fontSize:20,
+      //   marginTop:12
+      // }
+      }>
+        Product Name
+      </Text>
       <Text style={{
-      textAlign:"center",
-      fontSize:30,
-      color:'brown'}}>Your Name?</Text>
-      <TextInput defaultValue='Your Name?'
-      style={{borderWidth:1, height:50}}></TextInput>
+        fontSize:20,
+        color:'#E87918',
+        paddingVertical:18
+      }}>
+        $ 00.00
+      </Text>
+      <Button
+        color='#E87918'
+        title="Buy"
+        onPress={() => Alert.alert('Bayar Sekarang')}
+      />
+      
     </View>
-    );
-  }
+  )
 }
-
-
 
 export default App
+
+const styles = StyleSheet.create({
+  square : {
+    backgroundColor: '#E6E6E6',
+      width: 227,
+      height:269,
+      marginTop: 30,
+      alignSelf: 'center',
+      padding:12,
+      borderRadius: 10
+  },
+  productName: {
+    fontWeight:'bold',
+    fontSize:20,
+    marginTop:12
+  }
+})
